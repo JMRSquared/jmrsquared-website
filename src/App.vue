@@ -40,10 +40,6 @@ export default Vue.extend({
   background-color: $blueDarkColor;
 }
 
-.page {
-  background: $greyColor;
-}
-
 .mdi {
   font-family: "Material Design Icons", "materialdesignicons";
 }
@@ -71,8 +67,8 @@ export default Vue.extend({
   color: $blueLightColor;
 }
 
-.bg-grey {
-  background-color: #aaaaaa;
+.bg-white {
+  background-color: $whiteColor;
 }
 
 .chip-selected {

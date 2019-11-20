@@ -1,9 +1,36 @@
 <template>
-  <v-layout text-center wrap>
+  <v-layout wrap>
     <v-row>
+      <v-row xs12 class="accent">
+        <v-flex center text-center xs12 md4>
+          <v-img
+            px-5
+            :src="require('../assets/logo-text.png')"
+            contain
+            height="500"
+          ></v-img>
+          <h2 px-5 class="display-4">
+            IT specialists
+          </h2>
+        </v-flex>
+        <v-flex xs12 md8>
+          <v-img
+            :src="require('../assets/images/computer-type.jpg')"
+            class="my-3"
+            contain
+            height="90%"
+          ></v-img>
+        </v-flex>
+      </v-row>
       <v-row xs12 class="secondary">
         <v-flex xs12 md6>
           <h1 class="display-4" color="accent"></h1>
+          <v-img
+            :src="require('../assets/logo.png')"
+            class="my-3"
+            contain
+            height="400"
+          ></v-img>
         </v-flex>
         <v-flex xs12 md6>
           <v-img
@@ -17,7 +44,7 @@
       <v-row xs12>
         <v-flex xs12 md6>
           <v-img
-            :src="require('../assets/images/white-investing.jpg')"
+            :src="require('../assets/images/white-investing.png')"
             class="my-3"
             contain
             height="700"
@@ -27,7 +54,7 @@
           <h1 class="display-4" color="accent"></h1>
         </v-flex>
       </v-row>
-      <v-row xs12 class="accent">
+      <v-row xs12>
         <v-flex xs12 md6>
           <h1 class="display-4" color="accent"></h1>
         </v-flex>
@@ -38,6 +65,22 @@
             contain
             height="700"
           ></v-img>
+        </v-flex>
+      </v-row>
+      <v-row xs12>
+        <v-flex xs12 md4>
+          <h1 class="display-4" color="accent"></h1>
+        </v-flex>
+        <v-flex xs12 md4>
+          <v-img
+            :src="require('../assets/images/working-charactor.png')"
+            class="my-3"
+            contain
+            height="700"
+          ></v-img>
+        </v-flex>
+        <v-flex xs12 md4>
+          <h1 class="display-4" color="accent"></h1>
         </v-flex>
       </v-row>
     </v-row>
