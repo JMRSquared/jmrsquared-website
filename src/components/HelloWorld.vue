@@ -2,70 +2,49 @@
   <v-layout wrap>
     <v-row>
       <v-row xs12 class="accent">
-        <v-flex center text-center xs12 md4>
-          <v-img
-            px-5
-            :src="require('../assets/logo-text.png')"
-            contain
-            height="500"
-          ></v-img>
-          <h2 px-5 class="display-4">
-            IT specialists
-          </h2>
+        <v-flex my-auto px-10 xs12 md4>
+          <div>
+            <h3>
+              <v-img
+                aspect-ratio="7"
+                py-5
+                :src="require('../assets/logo-text.png')"
+              ></v-img>
+            </h3>
+          </div>
+          <lottie
+            :options="defaultOptions"
+            :height="500"
+            v-on:animCreated="handleAnimation"
+          />
         </v-flex>
         <v-flex xs12 md8>
           <v-img
             :src="require('../assets/images/computer-type.jpg')"
             class="my-3"
             contain
-            height="90%"
+            height="70%"
           ></v-img>
         </v-flex>
       </v-row>
       <v-row xs12 class="secondary">
         <v-flex xs12 md6>
           <h1 class="display-4" color="accent"></h1>
-          <v-img
-            :src="require('../assets/logo.png')"
-            class="my-3"
-            contain
-            height="400"
-          ></v-img>
+          <lottie :options="walkAnim" v-on:animCreated="handleAnimation" />
         </v-flex>
-        <v-flex xs12 md6>
-          <v-img
-            :src="require('../assets/images/blue-friend.jpg')"
-            class="my-3"
-            contain
-            height="700"
-          ></v-img>
-        </v-flex>
+        <v-flex xs12 md6> </v-flex>
       </v-row>
       <v-row xs12>
+        <v-flex xs12 md6> </v-flex>
         <v-flex xs12 md6>
-          <v-img
-            :src="require('../assets/images/white-investing.png')"
-            class="my-3"
-            contain
-            height="700"
-          ></v-img>
+          <lottie :options="codeAnim" v-on:animCreated="handleAnimation" />
         </v-flex>
+      </v-row>
+      <v-row xs12 class="secondary">
         <v-flex xs12 md6>
           <h1 class="display-4" color="accent"></h1>
         </v-flex>
-      </v-row>
-      <v-row xs12>
-        <v-flex xs12 md6>
-          <h1 class="display-4" color="accent"></h1>
-        </v-flex>
-        <v-flex xs12 md6>
-          <v-img
-            :src="require('../assets/images/blue-friend.jpg')"
-            class="my-3"
-            contain
-            height="700"
-          ></v-img>
-        </v-flex>
+        <v-flex xs12 md6> </v-flex>
       </v-row>
       <v-row xs12>
         <v-flex xs12 md4>
@@ -83,115 +62,42 @@
           <h1 class="display-4" color="accent"></h1>
         </v-flex>
       </v-row>
+      <v-row>
+        <v-flex md6>
+          <v-img
+            :src="require('../assets/images/white-investing.png')"
+            class="my-3"
+            contain
+            height="700"
+          ></v-img>
+        </v-flex>
+      </v-row>
     </v-row>
-
-    <v-flex mb-5 xs12>
-      <h2 class="headline font-weight-bold mb-3">What's next?</h2>
-
-      <v-layout justify-center>
-        <a
-          v-for="(next, i) in whatsNext"
-          :key="i"
-          :href="next.href"
-          class="subheading mx-3"
-          target="_blank"
-        >
-          {{ next.text }}
-        </a>
-      </v-layout>
-    </v-flex>
-
-    <v-flex xs12 mb-5>
-      <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-      <v-layout justify-center>
-        <a
-          v-for="(link, i) in importantLinks"
-          :key="i"
-          :href="link.href"
-          class="subheading mx-3"
-          target="_blank"
-        >
-          {{ link.text }}
-        </a>
-      </v-layout>
-    </v-flex>
-
-    <v-flex xs12 mb-5>
-      <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-      <v-layout justify-center>
-        <a
-          v-for="(eco, i) in ecosystem"
-          :key="i"
-          :href="eco.href"
-          class="subheading mx-3"
-          target="_blank"
-        >
-          {{ eco.text }}
-        </a>
-      </v-layout>
-    </v-flex>
   </v-layout>
 </template>
 
 <script lang="ts">
+import Lottie from "./lottie.vue";
+
 import Vue from "vue";
+import * as animationData from "../assets/lottie/jump.json";
+import * as walkingAnim from "../assets/lottie/walk.json";
+import * as codingAnim from "../assets/lottie/code.json";
 
 export default Vue.extend({
   name: "HelloWorld",
-
+  components: {
+    lottie: Lottie
+  },
   data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader"
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify"
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify"
-      }
-    ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com"
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com"
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify"
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs"
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify"
-      }
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer"
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/layout/pre-defined"
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions"
-      }
-    ]
-  })
+    defaultOptions: { animationData: animationData.default },
+    walkAnim: { animationData: walkingAnim.default },
+    codeAnim: { animationData: codingAnim.default }
+  }),
+  methods: {
+    handleAnimation(anim: any) {
+      console.log("Animation started");
+    }
+  }
 });
 </script>
