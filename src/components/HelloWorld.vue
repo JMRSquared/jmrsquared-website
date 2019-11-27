@@ -1,29 +1,35 @@
 <template>
   <v-layout wrap>
     <v-row>
+      <v-flex xs12 class="fill-height shapes" style="border:1px solid yellow;">
+        <img
+          v-for="i in 7"
+          :key="i"
+          :src="require(`../assets/images/small/shaps${i}.png`)"
+          alt=""
+          :class="`shape shape${i} anim-${i}`"
+        />
+      </v-flex>
       <v-row xs12 class="accent">
-        <v-flex my-auto px-10 xs12 md4>
-          <div>
-            <h3>
-              <v-img
-                aspect-ratio="7"
-                py-5
-                :src="require('../assets/logo-text.png')"
-              ></v-img>
-            </h3>
-          </div>
-          <lottie
-            :options="defaultOptions"
-            :height="500"
-            v-on:animCreated="handleAnimation"
-          />
+        <v-flex class="align-content-center" md1></v-flex>
+        <v-flex class="align-content-center" my-auto pl-5 xs12 md3>
+          <v-img
+            aspect-ratio="6"
+            class="big-logo"
+            lazy
+            :src="require('../assets/logo-text.png')"
+          ></v-img>
+          <v-flex mx-5 mt-10 pt-10>
+            <p class="big-text align-content-center">
+              We develop mobile/web applications
+            </p>
+          </v-flex>
         </v-flex>
         <v-flex xs12 md8>
           <v-img
             :src="require('../assets/images/computer-type.jpg')"
-            class="my-3"
             contain
-            height="70%"
+            height="90%"
           ></v-img>
         </v-flex>
       </v-row>
@@ -101,3 +107,200 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style lang="scss" scoped>
+.big-text {
+  /*font-family: "Merriweather", serif;
+  font-family: 'Faster One', cursive;
+font-family: 'Merriweather', serif;
+  font-family: "Kaushan Script", cursive;*/
+  position: absolute;
+  z-index: 3;
+  font-family: "Lobster", cursive;
+  margin-left: -5%;
+  font-weight: 400;
+  font-size: 2.5vw;
+  opacity: 0.5;
+}
+
+.shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.shapes .shape {
+  position: absolute;
+  z-index: 2;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+}
+
+.shapes .shape1 {
+  left: 46%;
+  top: 10%;
+}
+.shapes .shape2 {
+  left: 17%;
+  top: 20%;
+}
+.shapes .shape3 {
+  left: 65%;
+  top: 10%;
+}
+.shapes .shape4 {
+  left: 50%;
+  top: 5%;
+}
+.shapes .shape5 {
+  left: 40%;
+  top: 23%;
+}
+.shapes .shape6 {
+  left: 10%;
+  top: 10%;
+}
+.shapes .shape7 {
+  left: 30%;
+  top: 15%;
+}
+
+.anim-1 {
+  -webkit-animation: animate-1 2s linear infinite;
+  animation: animate-1 1s linear infinite;
+}
+
+.anim-2 {
+  -webkit-animation: animate-2 2s linear infinite;
+  animation: animate-2 1s linear infinite;
+}
+
+.anim-3 {
+  -webkit-animation: animate-3 4s linear infinite;
+  animation: animate-3 4s linear infinite;
+}
+
+.anim-4 {
+  -webkit-animation: animate-4 4s linear infinite;
+  animation: animate-4 4s linear infinite;
+}
+
+.anim-5 {
+  -webkit-animation: animate-5 2s linear infinite;
+  animation: animate-5 1s linear infinite;
+}
+
+.anim-6 {
+  -webkit-animation: animate-6 2s linear infinite;
+  animation: animate-6 3s linear infinite;
+}
+
+.anim-7 {
+  -webkit-animation: animate-7 2s linear infinite;
+  animation: animate-7 1s linear infinite;
+}
+
+@keyframes animate-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-4 {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  50% {
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes animate-5 {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  50% {
+    -webkit-transform: translateX(40px);
+    transform: translateX(40px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes animate-6 {
+  0% {
+    -webkit-transform: translateX(0) rotate(0);
+    transform: translateX(0) rotate(0);
+  }
+
+  50% {
+    -webkit-transform: translateX(40px) rotate(360deg);
+    transform: translateX(90px) rotate(360deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(0) rotate(0);
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes animate-7 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+
+  50% {
+    -webkit-transform: translate(50px);
+    transform: translate(50px);
+  }
+
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+</style>
