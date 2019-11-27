@@ -1,83 +1,181 @@
 <template>
   <v-layout wrap>
     <v-row>
-      <v-flex xs12 class="fill-height shapes" style="border:1px solid yellow;">
-        <img
-          v-for="i in 7"
-          :key="i"
-          :src="require(`../assets/images/small/shaps${i}.png`)"
-          alt=""
-          :class="`shape shape${i} anim-${i}`"
-        />
-      </v-flex>
-      <v-row xs12 class="accent">
-        <v-flex class="align-content-center" md1></v-flex>
-        <v-flex class="align-content-center" my-auto pl-5 xs12 md3>
-          <v-img
-            aspect-ratio="6"
-            class="big-logo"
-            lazy
-            :src="require('../assets/logo-text.png')"
-          ></v-img>
-          <v-flex mx-5 mt-10 pt-10>
-            <p class="big-text align-content-center">
-              We develop mobile/web applications
-            </p>
+      <v-col xs="12" md="12" class="accent">
+        <v-row>
+          <v-flex xs12 class="fill-height shapes">
+            <img
+              v-for="i in 7"
+              :key="i"
+              :src="require(`../assets/images/small/shaps${i}.png`)"
+              alt=""
+              :class="`shape shape${i} anim-${i}`"
+            />
           </v-flex>
-        </v-flex>
-        <v-flex xs12 md8>
-          <v-img
-            :src="require('../assets/images/computer-type.jpg')"
-            contain
-            height="90%"
-          ></v-img>
-        </v-flex>
-      </v-row>
-      <v-row xs12 class="secondary">
-        <v-flex xs12 md6>
-          <h1 class="display-4" color="accent"></h1>
-          <lottie :options="walkAnim" v-on:animCreated="handleAnimation" />
-        </v-flex>
-        <v-flex xs12 md6> </v-flex>
-      </v-row>
-      <v-row xs12>
-        <v-flex xs12 md6> </v-flex>
-        <v-flex xs12 md6>
-          <lottie :options="codeAnim" v-on:animCreated="handleAnimation" />
-        </v-flex>
-      </v-row>
-      <v-row xs12 class="secondary">
-        <v-flex xs12 md6>
-          <h1 class="display-4" color="accent"></h1>
-        </v-flex>
-        <v-flex xs12 md6> </v-flex>
-      </v-row>
-      <v-row xs12>
-        <v-flex xs12 md4>
-          <h1 class="display-4" color="accent"></h1>
-        </v-flex>
-        <v-flex xs12 md4>
-          <v-img
-            :src="require('../assets/images/working-charactor.png')"
-            class="my-3"
-            contain
-            height="700"
-          ></v-img>
-        </v-flex>
-        <v-flex xs12 md4>
-          <h1 class="display-4" color="accent"></h1>
-        </v-flex>
-      </v-row>
-      <v-row>
-        <v-flex md6>
-          <v-img
-            :src="require('../assets/images/white-investing.png')"
-            class="my-3"
-            contain
-            height="700"
-          ></v-img>
-        </v-flex>
-      </v-row>
+          <v-flex class="align-content-center" md1></v-flex>
+          <v-flex class="align-content-center" my-auto pl-5 xs12 md3>
+            <v-img
+              aspect-ratio="6"
+              class="big-logo"
+              lazy
+              :src="require('../assets/logo-text.png')"
+            ></v-img>
+            <v-flex mx-5 mt-10 pt-10>
+              <p class="big-text align-content-center">
+                We develop mobile/web applications
+              </p>
+            </v-flex>
+          </v-flex>
+          <v-flex xs12 md8>
+            <v-img
+              :src="require('../assets/images/computer-type.jpg')"
+              contain
+              height="90%"
+            ></v-img>
+          </v-flex>
+        </v-row>
+      </v-col>
+
+      <v-col xs="12" md="12" class="accent">
+        <v-row
+          align="center"
+          justify="center"
+          no-gutters
+          xs12
+          class="secondary"
+        >
+          <v-col xs="12" md="8">
+            <v-img
+              :src="require('../assets/images/platforms.png')"
+              contain
+              width="100%"
+            ></v-img
+            ><!--
+          <lottie :options="walkAnim" v-on:animCreated="handleAnimation" /> -->
+          </v-col>
+          <v-col xs="12" md="4" pl-10>
+            <v-row>
+              <v-col>
+                <p class="big-text-2">
+                  We can digitilize your company in no time.
+                </p>
+              </v-col>
+            </v-row>
+            <p class="big-text-3">
+              Our team has helped in the development of many systems that are
+              used today
+            </p>
+          </v-col>
+        </v-row>
+      </v-col>
+
+      <v-col xs="12" md="12" class="accent">
+        <v-row no-gutters align="center" justify="center" xs12>
+          <v-col xs="12" md="6">
+            <v-card-text>
+              <p color="secondary" class="display-1">
+                We specialize in custom software and web development tailored
+                exactly according to your unique business requirements.
+              </p>
+            </v-card-text>
+          </v-col>
+          <v-col xs="12" md="6">
+            <lottie :options="codeAnim" v-on:animCreated="handleAnimation" />
+          </v-col>
+        </v-row>
+      </v-col>
+
+      <v-col xs="12" md="12" class="accent">
+        <v-row xs12 class="secondary">
+          <v-flex xs12 md6>
+            <h1 class="display-4" color="accent"></h1>
+          </v-flex>
+          <v-flex xs12 md6> </v-flex>
+        </v-row>
+      </v-col>
+
+      <v-col xs="12" md="12" class="accent">
+        <v-row xs12>
+          <v-flex xs12 md4>
+            <h1 class="display-4" color="accent"></h1>
+          </v-flex>
+          <v-flex xs12 md4>
+            <v-img
+              :src="require('../assets/images/working-charactor.png')"
+              class="my-3"
+              contain
+              height="700"
+            ></v-img>
+          </v-flex>
+          <v-flex xs12 md4>
+            <h1 class="display-4" color="accent"></h1>
+          </v-flex>
+        </v-row>
+      </v-col>
+
+      <v-col xs="12" md="12" class="accent">
+        <v-row no-gutters>
+          <v-col md="6">
+            <v-img
+              :src="require('../assets/images/white-investing.png')"
+              class="my-3"
+              contain
+              height="700"
+            ></v-img>
+          </v-col>
+          <v-col md="3" offset-md="1">
+            <v-card class="mx-auto">
+              <v-card-text>
+                <p class="display-1 text--primary">
+                  Contact Us
+                </p>
+                <p class="caption text--primary">
+                  Please fill in your details below and we will be sure to
+                  contact you.
+                </p>
+                <v-row>
+                  <v-col md="10" offset-md="1">
+                    <v-text-field
+                      v-model="message"
+                      outlined
+                      clearable
+                      label="Your name"
+                      prepend-inner-icon="mdi-account"
+                      type="text"
+                    />
+                  </v-col>
+                  <v-col md="10" offset-md="1">
+                    <v-text-field
+                      v-model="message"
+                      outlined
+                      clearable
+                      label="Your email"
+                      prepend-inner-icon="mdi-email"
+                      type="email"
+                    />
+                  </v-col>
+                  <v-col md="12">
+                    <v-btn block color="primary">
+                      Submit
+                    </v-btn>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+              <v-card-text>
+                <p class="display-1 text--primary">
+                  Not a forms person?
+                </p>
+                <v-btn text color="primary">
+                  Send us a direct email
+                </v-btn>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-col>
     </v-row>
   </v-layout>
 </template>
@@ -109,6 +207,25 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@mixin font($font-family, $font-file) {
+  @font-face {
+    font-family: $font-family;
+    src: /* url($font-file+".eot");
+    src: url($font-file+".eot?#iefix") format("embedded-opentype"),
+      url($font-file+".woff") format("woff"),
+      url($font-file+".svg#aller") format("svg");*/ url($font-file+".ttf")
+      format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@include font("Aquawax-Bold", "../assets/fonts/Aquawax_Black_Trial");
+
+.logo-text {
+  font-family: "Aquawax-Bold" arial, sans-serif;
+}
+
 .big-text {
   /*font-family: "Merriweather", serif;
   font-family: 'Faster One', cursive;
@@ -121,6 +238,35 @@ font-family: 'Merriweather', serif;
   font-weight: 400;
   font-size: 2.5vw;
   opacity: 0.5;
+}
+
+.big-text-2 {
+  /*font-family: "Merriweather", serif;
+  font-family: 'Faster One', cursive;
+  font-family: 'Merriweather', serif;
+  font-family: "Kaushan Script", cursive;*/
+  position: absolute;
+  margin-left: -15%;
+  margin-top: -10%;
+  color: white;
+  font-family: "Lato", serif;
+  font-weight: 600;
+  font-size: 2.5vw;
+}
+
+.big-text-3 {
+  /*font-family: "Merriweather", serif;
+  font-family: 'Faster One', cursive;
+  font-family: 'Merriweather', serif;
+  font-family: "Kaushan Script", cursive;*/
+  position: absolute;
+  margin-left: -10%;
+  margin-top: -5%;
+  padding-right: 30px;
+  color: white;
+  font-family: "Lato", serif;
+  font-weight: 300;
+  font-size: 1.5vw;
 }
 
 .shapes {
