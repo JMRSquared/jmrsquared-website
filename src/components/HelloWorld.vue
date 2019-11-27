@@ -44,7 +44,7 @@
           xs12
           class="secondary"
         >
-          <v-col xs="12" md="8">
+          <v-col xs="12" md="7">
             <v-img
               :src="require('../assets/images/platforms.png')"
               contain
@@ -53,18 +53,25 @@
             ><!--
           <lottie :options="walkAnim" v-on:animCreated="handleAnimation" /> -->
           </v-col>
-          <v-col xs="12" md="4" pl-10>
+          <v-col xs="12" md="5" pl-10>
             <v-row>
               <v-col>
                 <p class="big-text-2">
                   We can digitilize your company in no time.
                 </p>
               </v-col>
+              <v-col class="expertise-list">
+                <v-list two-line flat color="transparent" dark shaped>
+                  <v-list-item-group v-model="item" color="accent">
+                    <v-list-item v-for="(item, i) in expertise" :key="i">
+                      <v-list-item-content>
+                        <v-list-item-title v-text="item"></v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list-item-group>
+                </v-list>
+              </v-col>
             </v-row>
-            <p class="big-text-3">
-              Our team has helped in the development of many systems that are
-              used today
-            </p>
           </v-col>
         </v-row>
       </v-col>
@@ -159,7 +166,7 @@
               </v-col>
               <v-col md="12">
                 <v-card
-                  class="mx-10" 
+                  class="mx-10"
                   href="https://tsingamo.com"
                   target="_blank"
                   @mouseover="hoveredClient = 2"
@@ -370,6 +377,13 @@ export default Vue.extend({
     walkAnim: { animationData: walkingAnim.default },
     codeAnim: { animationData: codingAnim.default },
     hoveredClient: -1,
+    expertise: [
+      `We specialize in custom software and web development tailored exactly according to your unique business requirements.`,
+      `Our team has assisted in the development and growth of many systems that are in use today.`,
+      `Let us help build your brand and take your business to new heights in every aspect of software development.`,
+      `We translate your business ideas to custom mobile and web applications to showcase online at an affordable rate.`,
+      `Our goal is to deliver the highest quality products and services with guaranteed satisfaction.`
+    ],
     services: [
       {
         name: "Software development",
@@ -461,19 +475,16 @@ font-family: 'Merriweather', serif;
   font-size: 2.5vw;
 }
 
-.big-text-3 {
+.expertise-list {
   /*font-family: "Merriweather", serif;
   font-family: 'Faster One', cursive;
   font-family: 'Merriweather', serif;
   font-family: "Kaushan Script", cursive;*/
   position: absolute;
-  margin-left: -10%;
+  margin-left: -5%;
   margin-top: -5%;
   padding-right: 30px;
   color: white;
-  font-family: "Lato", serif;
-  font-weight: 300;
-  font-size: 1.5vw;
 }
 
 .shapes {
