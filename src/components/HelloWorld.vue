@@ -72,11 +72,26 @@
       <v-col xs="12" md="12" class="accent">
         <v-row no-gutters align="center" justify="center" xs12>
           <v-col xs="12" md="6">
-            <v-card-text>
-              <p color="secondary" class="display-1">
+            <v-card-text
+              style="position:absolute;width:60%;margin-top:-10%;margin-left:10%"
+            >
+              <p class="display-1 text-secondary">
                 We specialize in custom software and web development tailored
                 exactly according to your unique business requirements.
               </p>
+              <v-list max-width="50%" rounded>
+                <v-subheader>Our services</v-subheader>
+                <v-list-item-group v-model="item" color="primary">
+                  <v-list-item v-for="(item, i) in services" :key="i">
+                    <v-list-item-icon>
+                      <v-icon v-text="item.icon"></v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="item.name"></v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
             </v-card-text>
           </v-col>
           <v-col xs="12" md="6">
@@ -95,21 +110,178 @@
       </v-col>
 
       <v-col xs="12" md="12" class="accent">
-        <v-row xs12>
-          <v-flex xs12 md4>
+        <v-row xs12 justify="center">
+          <v-col class="mx-auto center" xs="12" md="12">
+            <p class="display-1 text-center text-secondary">
+              Some of our happy clients
+            </p>
+          </v-col>
+          <v-col xs="12" md="4">
+            <v-row>
+              <v-col md="12">
+                <v-card
+                  class="mx-10"
+                  href="https://coportal.net"
+                  target="_blank"
+                  @mouseover="hoveredClient = 1"
+                  @mouseleave="hoveredClient = -1"
+                  :color="hoveredClient == 1 ? 'primary' : 'accent'"
+                  :dark="hoveredClient == 1"
+                >
+                  <v-card-text class="headline font-weight-bold">
+                    "They developed our Mobile application and website for an
+                    affordable price and in a short time frame" -
+                    <em>Reotshepile Seleka</em>
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-list-item class="grow">
+                      <v-img
+                        size="12"
+                        max-width="50%"
+                        aspect-ratio="2"
+                        height="auto"
+                        src="https://coportal.net/static/img/coPortalLogo.jpg"
+                      ></v-img>
+
+                      <v-row align="center" justify="end">
+                        <v-icon mx-2 left>
+                          mdi-tablet-cellphone
+                        </v-icon>
+
+                        <v-icon mx-2 left>
+                          mdi-web
+                        </v-icon>
+                      </v-row>
+                    </v-list-item>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+              <v-col md="12">
+                <v-card
+                  class="mx-10" 
+                  href="https://tsingamo.com"
+                  target="_blank"
+                  @mouseover="hoveredClient = 2"
+                  @mouseleave="hoveredClient = -1"
+                  :color="hoveredClient == 2 ? 'primary' : 'accent'"
+                  :dark="hoveredClient == 2"
+                >
+                  <v-card-text class="headline font-weight-bold">
+                    "They are a strong team of developers because they designed
+                    and developed our website in less than a week" -
+                    <em>Maladze Makhoshi</em>
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-list-item class="grow">
+                      <v-img
+                        size="12"
+                        max-width="50%"
+                        aspect-ratio="2"
+                        height="auto"
+                        src="https://tsingamo.com/static/logo.png"
+                      ></v-img>
+
+                      <v-row align="center" justify="end">
+                        <v-icon mx-2 left>
+                          mdi-web
+                        </v-icon>
+                      </v-row>
+                    </v-list-item>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+            </v-row>
             <h1 class="display-4" color="accent"></h1>
-          </v-flex>
-          <v-flex xs12 md4>
+          </v-col>
+          <v-col class="fill-height my-auto" xs="12" md="4">
             <v-img
               :src="require('../assets/images/working-charactor.png')"
               class="my-3"
               contain
               height="700"
             ></v-img>
-          </v-flex>
-          <v-flex xs12 md4>
+          </v-col>
+          <v-col xs="12" md="4">
+            <v-row>
+              <v-col md="12">
+                <v-card
+                  class="mx-10"
+                  href="https://play.google.com/store/apps/details?id=com.jmrsquared.jmrsquaredapp"
+                  target="_blank"
+                  @mouseover="hoveredClient = 3"
+                  @mouseleave="hoveredClient = -1"
+                  :color="hoveredClient == 3 ? 'primary' : 'accent'"
+                  :dark="hoveredClient == 3"
+                >
+                  <v-card-text class="headline font-weight-bold">
+                    "JMRSquared business management native application for
+                    android and IOS" - <em>Masindi</em>
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-list-item class="grow">
+                      <v-img
+                        size="12"
+                        max-width="50%"
+                        aspect-ratio="2"
+                        height="auto"
+                        :src="require('../assets/logo.png')"
+                      ></v-img>
+
+                      <v-row align="center" justify="end">
+                        <v-icon mx-2 left>
+                          mdi-tablet-cellphone
+                        </v-icon>
+
+                        <v-icon mx-2 left>
+                          mdi-monitor-dashboard
+                        </v-icon>
+                      </v-row>
+                    </v-list-item>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+              <v-col md="12">
+                <v-card
+                  class="mx-10"
+                  @mouseover="hoveredClient = 4"
+                  @mouseleave="hoveredClient = -1"
+                  :color="hoveredClient == 4 ? 'primary' : 'accent'"
+                  :dark="hoveredClient == 4"
+                >
+                  <v-card-text class="headline font-weight-bold">
+                    "They took over our legacy system and convert it to use the
+                    latest tech-stack increasing our productivity and load
+                    times" - <em>Mr Sithole</em>
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-list-item class="grow">
+                      <v-img
+                        size="12"
+                        max-width="50%"
+                        aspect-ratio="2"
+                        height="auto"
+                        src="https://raw.githubusercontent.com/Lavhe/Uzzie/master/Uzzie/Content/img/Lushaka.png"
+                      ></v-img>
+
+                      <v-row align="center" justify="end">
+                        <v-icon mx-2 left>
+                          mdi-server
+                        </v-icon>
+                        <v-icon mx-2 left>
+                          mdi-database
+                        </v-icon>
+                      </v-row>
+                    </v-list-item>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+            </v-row>
             <h1 class="display-4" color="accent"></h1>
-          </v-flex>
+          </v-col>
         </v-row>
       </v-col>
 
@@ -196,7 +368,38 @@ export default Vue.extend({
   data: () => ({
     defaultOptions: { animationData: animationData.default },
     walkAnim: { animationData: walkingAnim.default },
-    codeAnim: { animationData: codingAnim.default }
+    codeAnim: { animationData: codingAnim.default },
+    hoveredClient: -1,
+    services: [
+      {
+        name: "Software development",
+        icon: "mdi-code-tags"
+      },
+      {
+        name: "Mobile Application Development ",
+        icon: "mdi-tablet-cellphone"
+      },
+      {
+        name: "Web Application Development",
+        icon: "mdi-web"
+      },
+      {
+        name: "Database Management and Development",
+        icon: "mdi-database"
+      },
+      {
+        name: "Server maintainance and Cloud Deployments",
+        icon: "mdi-server"
+      },
+      {
+        name: "Dashboards and Data visualization",
+        icon: "mdi-monitor-dashboard"
+      },
+      {
+        name: "Automation and Manual Testing",
+        icon: "mdi-test-tube"
+      }
+    ]
   }),
   methods: {
     handleAnimation(anim: any) {
@@ -218,6 +421,10 @@ export default Vue.extend({
     font-weight: normal;
     font-style: normal;
   }
+}
+
+.text-secondary {
+  color: #0093a4;
 }
 
 @include font("Aquawax-Bold", "../assets/fonts/Aquawax_Black_Trial");
