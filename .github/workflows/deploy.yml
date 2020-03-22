@@ -1,0 +1,24 @@
+name: DeployServerAndRunDeployScript
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: copy via ssh
+      uses: garygrossgarten/github-action-scp@v0.5.3
+      with:
+        local: $GITHUB_WORKSPACE
+        remote: "/tmp/jmr-squared-scraper"
+        host: ${{ secrets.SERVER_URL }}
+        username: $${{ secrets.SERVER_USERNAME }}
+        password: ${{ secrets.SERVER_PASSWORD }}
+    - name: SSH command runner
+      uses: Evaneos/ssh-action@v0.1.0
+      with:
+        hosts:  ${{ secrets.SERVER_URL }}
+        commands: "/tmp/jmr-squared-website/deploy.sh"
+        user: ${{ secrets.SERVER_USERNAME }}
+        password: ${{ secrets.SERVER_PASSWORD }}
