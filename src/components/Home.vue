@@ -18,11 +18,12 @@
               aspect-ratio="6"
               class="big-logo"
               lazy
+              width="100%"
               :src="require('../assets/logo-text.png')"
             ></v-img>
             <v-flex mx-5 mt-10 pt-10>
               <p class="big-text align-content-center">
-                We develop mobile/web applications
+                We develop mobile & web applications
               </p>
             </v-flex>
           </v-flex>
@@ -30,7 +31,7 @@
             <v-img
               :src="require('../assets/images/computer-type.jpg')"
               contain
-              height="90%"
+              height="100%"
             ></v-img>
           </v-flex>
         </v-row>
@@ -44,7 +45,7 @@
           xs12
           class="secondary"
         >
-          <v-col xs="12" md="7">
+          <v-col xs="12" md="8">
             <v-img
               :src="require('../assets/images/platforms.png')"
               contain
@@ -53,19 +54,22 @@
             ><!--
           <lottie :options="walkAnim" v-on:animCreated="handleAnimation" /> -->
           </v-col>
-          <v-col xs="12" md="5" pl-10>
+          <v-col xs="12" md="4" class="pl-10 ml-n10">
             <v-row>
-              <v-col>
+              <v-col cols="12" xs="12">
                 <p class="big-text-2">
-                  We can digitilize your company in no time.
+                  We can digitalize your company in no time.
                 </p>
               </v-col>
-              <v-col class="expertise-list">
+              <v-col cols="12" xs="12" class="expertise-list">
                 <v-list two-line flat color="transparent" dark shaped>
-                  <v-list-item-group v-model="item" color="accent">
+                  <v-list-item-group color="accent">
                     <v-list-item v-for="(item, i) in expertise" :key="i">
                       <v-list-item-content>
-                        <v-list-item-title v-text="item"></v-list-item-title>
+                        <v-list-item-text
+                          class="text-start body-1"
+                          v-text="item"
+                        ></v-list-item-text>
                       </v-list-item-content>
                     </v-list-item>
                   </v-list-item-group>
@@ -88,7 +92,7 @@
               </p>
               <v-list max-width="50%" rounded>
                 <v-subheader>Our services</v-subheader>
-                <v-list-item-group v-model="item" color="primary">
+                <v-list-item-group color="primary">
                   <v-list-item v-for="(item, i) in services" :key="i">
                     <v-list-item-icon>
                       <v-icon v-text="item.icon"></v-icon>
@@ -120,7 +124,7 @@
         <v-row xs12 justify="center">
           <v-col class="mx-auto center" xs="12" md="12">
             <p class="display-1 text-center text-secondary">
-              Some of our happy clients
+              Some of our cool projects
             </p>
           </v-col>
           <v-col xs="12" md="4">
@@ -130,17 +134,11 @@
                   class="mx-10"
                   href="https://coportal.net"
                   target="_blank"
-                  @mouseover="hoveredClient = 1"
+                  @mouseover="hoveredClient = 0"
                   @mouseleave="hoveredClient = -1"
-                  :color="hoveredClient == 1 ? 'primary' : 'accent'"
-                  :dark="hoveredClient == 1"
+                  :color="hoveredClient == 0 ? 'primary' : 'white'"
+                  :dark="hoveredClient == 0"
                 >
-                  <v-card-text class="headline font-weight-bold">
-                    "They developed our Mobile application and website for an
-                    affordable price and in a short time frame" -
-                    <em>Reotshepile Seleka</em>
-                  </v-card-text>
-
                   <v-card-actions>
                     <v-list-item class="grow">
                       <v-img
@@ -148,7 +146,7 @@
                         max-width="50%"
                         aspect-ratio="2"
                         height="auto"
-                        src="https://coportal.net/static/img/coPortalLogo.jpg"
+                        src="https://coportal.net/img/logo_small.466beb9d.png"
                       ></v-img>
 
                       <v-row align="center" justify="end">
@@ -159,9 +157,50 @@
                         <v-icon mx-2 left>
                           mdi-web
                         </v-icon>
+                        <v-icon mx-2 left>
+                          mdi-database
+                        </v-icon>
                       </v-row>
                     </v-list-item>
                   </v-card-actions>
+                  <v-card-text class="body-1 font-weight-bold">
+                    Client
+                  </v-card-text>
+                </v-card>
+              </v-col>
+              <v-col md="12">
+                <v-card
+                  class="mx-10"
+                  href="https://play.google.com/store/apps/details?id=com.jmrsquared.sinister"
+                  target="_blank"
+                  @mouseover="hoveredClient = 1"
+                  @mouseleave="hoveredClient = -1"
+                  :color="hoveredClient == 1 ? 'primary' : 'white'"
+                  :dark="hoveredClient == 1"
+                >
+                  <v-card-actions>
+                    <v-list-item class="grow">
+                      <v-img
+                        size="12"
+                        max-width="50%"
+                        aspect-ratio="1"
+                        height="auto"
+                        src="https://lh3.googleusercontent.com/q7iUCfD9EeqIfQp5jyjGOESPiF5eMLTpuwp7eVAZdcqPpZV4aepySBdyddkNroG48Q"
+                      ></v-img>
+
+                      <v-row align="center" justify="end">
+                        <v-icon mx-2 left>
+                          mdi-tablet-cellphone
+                        </v-icon>
+                        <v-icon mx-2 left>
+                          mdi-database
+                        </v-icon>
+                      </v-row>
+                    </v-list-item>
+                  </v-card-actions>
+                  <v-card-text class="body-1 font-weight-bold">
+                    In-House
+                  </v-card-text>
                 </v-card>
               </v-col>
               <v-col md="12">
@@ -171,15 +210,9 @@
                   target="_blank"
                   @mouseover="hoveredClient = 2"
                   @mouseleave="hoveredClient = -1"
-                  :color="hoveredClient == 2 ? 'primary' : 'accent'"
+                  :color="hoveredClient == 2 ? 'primary' : 'white'"
                   :dark="hoveredClient == 2"
                 >
-                  <v-card-text class="headline font-weight-bold">
-                    "They are a strong team of developers because they designed
-                    and developed our website in less than a week" -
-                    <em>Maladze Makhoshi</em>
-                  </v-card-text>
-
                   <v-card-actions>
                     <v-list-item class="grow">
                       <v-img
@@ -197,6 +230,9 @@
                       </v-row>
                     </v-list-item>
                   </v-card-actions>
+                  <v-card-text class="body-1 font-weight-bold">
+                    Client
+                  </v-card-text>
                 </v-card>
               </v-col>
             </v-row>
@@ -219,14 +255,9 @@
                   target="_blank"
                   @mouseover="hoveredClient = 3"
                   @mouseleave="hoveredClient = -1"
-                  :color="hoveredClient == 3 ? 'primary' : 'accent'"
+                  :color="hoveredClient == 3 ? 'primary' : 'white'"
                   :dark="hoveredClient == 3"
                 >
-                  <v-card-text class="headline font-weight-bold">
-                    "JMRSquared business management native application for
-                    android and IOS" - <em>Masindi</em>
-                  </v-card-text>
-
                   <v-card-actions>
                     <v-list-item class="grow">
                       <v-img
@@ -245,9 +276,49 @@
                         <v-icon mx-2 left>
                           mdi-monitor-dashboard
                         </v-icon>
+                        <v-icon mx-2 left>
+                          mdi-database
+                        </v-icon>
                       </v-row>
                     </v-list-item>
                   </v-card-actions>
+                  <v-card-text class="body-1 font-weight-bold">
+                    In-House
+                  </v-card-text>
+                </v-card>
+              </v-col>
+              <v-col md="12">
+                <v-card
+                  class="mx-10"
+                  href="https://play.google.com/store/apps/details?id=com.vhq.varsityandroid"
+                  @mouseover="hoveredClient = 5"
+                  @mouseleave="hoveredClient = -1"
+                  :color="hoveredClient == 5 ? 'primary' : 'white'"
+                  :dark="hoveredClient == 5"
+                >
+                  <v-card-actions>
+                    <v-list-item class="grow">
+                      <v-img
+                        size="12"
+                        max-width="50%"
+                        aspect-ratio="1"
+                        height="auto"
+                        src="https://lh3.googleusercontent.com/tfRc-azFXBFB4y6-XWTd5cUaVq4VxUvJkKkJBhlojvi0ul3NtF9UMUdcFO0wttCo1g=s180-rw"
+                      ></v-img>
+
+                      <v-row align="center" justify="end">
+                        <v-icon mx-2 left>
+                          mdi-tablet-cellphone
+                        </v-icon>
+                        <v-icon mx-2 left>
+                          mdi-database
+                        </v-icon>
+                      </v-row>
+                    </v-list-item>
+                  </v-card-actions>
+                  <v-card-text class="body-1 font-weight-bold">
+                    Client
+                  </v-card-text>
                 </v-card>
               </v-col>
               <v-col md="12">
@@ -255,15 +326,9 @@
                   class="mx-10"
                   @mouseover="hoveredClient = 4"
                   @mouseleave="hoveredClient = -1"
-                  :color="hoveredClient == 4 ? 'primary' : 'accent'"
+                  :color="hoveredClient == 4 ? 'primary' : 'white'"
                   :dark="hoveredClient == 4"
                 >
-                  <v-card-text class="headline font-weight-bold">
-                    "They took over our legacy system and convert it to use the
-                    latest tech-stack increasing our productivity and load
-                    times" - <em>Mr Sithole</em>
-                  </v-card-text>
-
                   <v-card-actions>
                     <v-list-item class="grow">
                       <v-img
@@ -284,6 +349,9 @@
                       </v-row>
                     </v-list-item>
                   </v-card-actions>
+                  <v-card-text class="body-1 font-weight-bold">
+                    Client
+                  </v-card-text>
                 </v-card>
               </v-col>
             </v-row>
@@ -315,7 +383,7 @@
                 <v-row>
                   <v-col md="10" offset-md="1">
                     <v-text-field
-                      v-model="message"
+                      v-model="name"
                       outlined
                       clearable
                       label="Your name"
@@ -325,7 +393,7 @@
                   </v-col>
                   <v-col md="10" offset-md="1">
                     <v-text-field
-                      v-model="message"
+                      v-model="email"
                       outlined
                       clearable
                       label="Your email"
@@ -333,8 +401,23 @@
                       type="email"
                     />
                   </v-col>
+                  <v-col md="10" offset-md="1">
+                    <v-textarea
+                      v-model="message"
+                      outlined
+                      clearable
+                      label="Your message"
+                      prepend-inner-icon="mdi-message"
+                      type="text"
+                    />
+                  </v-col>
                   <v-col md="12">
-                    <v-btn block color="primary">
+                    <v-btn
+                      @click="submitForm()"
+                      :loading="isLoading"
+                      block
+                      color="primary"
+                    >
                       Submit
                     </v-btn>
                   </v-col>
@@ -347,7 +430,12 @@
                 <p class="display-1 text--primary">
                   Not a forms person?
                 </p>
-                <v-btn text color="primary">
+                <v-btn
+                  target="_blank"
+                  href="mailto:info@jmrsquared.com?subject=I%20visited%20your%20website&body=I%20need%20help%20with%20...."
+                  text
+                  color="primary"
+                >
                   Send us a direct email
                 </v-btn>
               </v-card-text>
@@ -373,16 +461,20 @@ export default Vue.extend({
     lottie: Lottie
   },
   data: () => ({
+    email: "",
+    name: "",
+    message: "",
+    isLoading: false,
     defaultOptions: { animationData: animationData.default },
     walkAnim: { animationData: walkingAnim.default },
     codeAnim: { animationData: codingAnim.default },
     hoveredClient: -1,
     expertise: [
-      `We specialize in custom software and web development tailored exactly according to your unique business requirements.`,
-      `Our team has assisted in the development and growth of many systems that are in use today.`,
-      `Let us help build your brand and take your business to new heights in every aspect of software development.`,
-      `We translate your business ideas to custom mobile and web applications to showcase online at an affordable rate.`,
-      `Our goal is to deliver the highest quality products and services with guaranteed satisfaction.`
+      `Our solutions are tailored exactly according to your unique business requirements.`,
+      `Our team has assisted in the development and growth of many systems.`,
+      `Let us help build your brand and take your business to new heights.`,
+      `We translate your business ideas to showcase online at an affordable rate.`,
+      `We deliver the highest quality products and services with guaranteed satisfaction.`
     ],
     services: [
       {
@@ -416,7 +508,8 @@ export default Vue.extend({
     ]
   }),
   methods: {
-    handleAnimation(anim: any) {
+    submitForm(anim: any) {
+      this.isLoading = true;
       console.log("Animation started");
     }
   }
@@ -468,7 +561,7 @@ font-family: 'Merriweather', serif;
   font-family: "Kaushan Script", cursive;*/
   position: absolute;
   margin-left: -15%;
-  margin-top: -10%;
+  margin-top: -15%;
   color: white;
   font-family: "Lato", serif;
   font-weight: 600;
@@ -483,6 +576,7 @@ font-family: 'Merriweather', serif;
   position: absolute;
   margin-left: -5%;
   margin-top: -5%;
+  font-size: 2.1vw;
   padding-right: 30px;
   color: white;
 }
