@@ -13,7 +13,7 @@ jobs:
         local: $GITHUB_WORKSPACE
         remote: "/tmp/jmr-squared-scraper"
         host: ${{ secrets.SERVER_URL }}
-        username: $${{ secrets.SERVER_USERNAME }}
+        username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
     - name: SSH command runner
       uses: Evaneos/ssh-action@v0.1.0
