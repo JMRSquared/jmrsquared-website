@@ -10,8 +10,8 @@ jobs:
     - name: copy via ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
-        local: "."
-        remote: "/tmp/jmr-squared-scraper"
+        local: "/github/workspace"
+        remote: "/tmp/jmr-squared-website"
         host: ${{ secrets.SERVER_URL }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
