@@ -10,7 +10,7 @@ jobs:
     - name: Working dir
       run: pwd
     - uses: actions/checkout@v1
-    - name: copy via ssh
+    - name: COpy files over ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
         local: ./
@@ -18,10 +18,10 @@ jobs:
         host: ${{ secrets.SERVER_URL }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-    - name: SSH command runner
-      uses: Evaneos/ssh-action@v0.1.0
+    - name: Start container on remote server
+      uses: garygrossgarten/github-action-ssh@v0.4.3
       with:
-        hosts:  ${{ secrets.SERVER_URL }}
-        user: ${{ secrets.SERVER_USERNAME }}
-        private_key : ${{ secrets.SERVER_PRIVATE_KEY }}
-        commands: "/tmp/jmr-squared-website/deploy.sh"
+        command: "/tmp/jmr-squared-website/deploy.sh"
+        host: ${{ secrets.SERVER_URL }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        password: ${{ secrets.SERVER_PASSWORD }}
