@@ -7,10 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Working dir
+      run: pwd
     - name: copy via ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
-        local: "/github/workspace"
+        local: ${{ pwd }}
         remote: "/tmp/jmr-squared-website"
         host: ${{ secrets.SERVER_URL }}
         username: ${{ secrets.SERVER_USERNAME }}
