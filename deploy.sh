@@ -1,4 +1,3 @@
- cd /tmp/app
  docker stop jmr-squared-website
  docker rm jmr-squared-website
  docker build -t jmr-squared-website:latest .
