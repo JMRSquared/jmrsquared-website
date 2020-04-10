@@ -28,7 +28,7 @@ jobs:
     - name: Start container on remote server
       uses: garygrossgarten/github-action-ssh@v0.4.3
       with:
-        command: "cd /tmp/jmr-squared-website/dist && bash ./deploy.sh"
+        command: "mkdir -p /tmp/jmr-squared-website && cd /tmp/jmr-squared-website && bash ./deploy.sh"
         host: ${{ secrets.SERVER_URL }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
