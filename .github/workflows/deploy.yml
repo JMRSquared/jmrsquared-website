@@ -16,7 +16,7 @@ jobs:
         node-version: '10.x'
     - run: npm install
     - run: npm run build
-    - run: cp ./deploy.sh ./dist/ 
+    - run: cp ./deploy.sh ./Dockerfile ./dist/ 
     - name: Copy files over ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
