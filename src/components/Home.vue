@@ -445,67 +445,67 @@
   </v-layout>
 </template>
 
-<script lang="ts">
-import Lottie from './lottie.vue';
+<script>
+import Lottie from "./lottie.vue";
 
-import Vue from 'vue';
-import * as codingAnim from '../assets/lottie/code.json';
+import Vue from "vue";
+import * as codingAnim from "../assets/lottie/code.json";
 
 export default Vue.extend({
-  name: 'HelloWorld',
+  name: "HelloWorld",
   components: {
-    lottie: Lottie,
+    lottie: Lottie
   },
   data: () => ({
-    email: '',
-    name: '',
-    message: '',
+    email: "",
+    name: "",
+    message: "",
     isLoading: false,
     codeAnim: { animationData: codingAnim.default },
     hoveredClient: -1,
     expertise: [
       `Our solutions are tailored exactly according to your unique business requirements.`,
-      `Our team has assisted in the development and growth of many systems.`,
+      `Our team has assisted in thhandleAnimatione development and growth of many systems.`,
       `Let us help build your brand and take your business to new heights.`,
       `We translate your business ideas to showcase online at an affordable rate.`,
-      `We deliver the highest quality products and services with guaranteed satisfaction.`,
+      `We deliver the highest quality products and services with guaranteed satisfaction.`
     ],
     services: [
       {
-        name: 'Software development',
-        icon: 'mdi-code-tags',
+        name: "Software development",
+        icon: "mdi-code-tags"
       },
       {
-        name: 'Mobile Application Development ',
-        icon: 'mdi-tablet-cellphone',
+        name: "Mobile Application Development ",
+        icon: "mdi-tablet-cellphone"
       },
       {
-        name: 'Web Application Development',
-        icon: 'mdi-web',
+        name: "Web Application Development",
+        icon: "mdi-web"
       },
       {
-        name: 'Database Management and Development',
-        icon: 'mdi-database',
+        name: "Database Management and Development",
+        icon: "mdi-database"
       },
       {
-        name: 'Server maintainance and Cloud Deployments',
-        icon: 'mdi-server',
+        name: "Server maintainance and Cloud Deployments",
+        icon: "mdi-server"
       },
       {
-        name: 'Dashboards and Data visualization',
-        icon: 'mdi-monitor-dashboard',
+        name: "Dashboards and Data visualization",
+        icon: "mdi-monitor-dashboard"
       },
       {
-        name: 'Automation and Manual Testing',
-        icon: 'mdi-test-tube',
-      },
-    ],
+        name: "Automation and Manual Testing",
+        icon: "mdi-test-tube"
+      }
+    ]
   }),
   methods: {
-    submitForm(anim: any) {
+    submitForm(anim) {
       this.isLoading = true;
-    },
-  },
+    }
+  }
 });
 </script>
 
@@ -513,11 +513,7 @@ export default Vue.extend({
 @mixin font($font-family, $font-file) {
   @font-face {
     font-family: $font-family;
-    src: /* url($font-file+".eot");
-    src: url($font-file+".eot?#iefix") format("embedded-opentype"),
-      url($font-file+".woff") format("woff"),
-      url($font-file+".svg#aller") format("svg");*/ url($font-file+".ttf")
-      format("truetype");
+    src: url($font-file+".ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
@@ -534,10 +530,6 @@ export default Vue.extend({
 }
 
 .big-text {
-  /*font-family: "Merriweather", serif;
-  font-family: 'Faster One', cursive;
-font-family: 'Merriweather', serif;
-  font-family: "Kaushan Script", cursive;*/
   position: absolute;
   z-index: 3;
   font-family: "Lobster", cursive;
@@ -548,10 +540,6 @@ font-family: 'Merriweather', serif;
 }
 
 .big-text-2 {
-  /*font-family: "Merriweather", serif;
-  font-family: 'Faster One', cursive;
-  font-family: 'Merriweather', serif;
-  font-family: "Kaushan Script", cursive;*/
   position: absolute;
   margin-left: -15%;
   margin-top: -15%;
@@ -562,10 +550,6 @@ font-family: 'Merriweather', serif;
 }
 
 .expertise-list {
-  /*font-family: "Merriweather", serif;
-  font-family: 'Faster One', cursive;
-  font-family: 'Merriweather', serif;
-  font-family: "Kaushan Script", cursive;*/
   position: absolute;
   margin-left: -5%;
   margin-top: -5%;

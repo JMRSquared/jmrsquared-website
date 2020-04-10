@@ -16,6 +16,7 @@ jobs:
         node-version: '10.x'
     - run: npm install
     - run: npm run build
+    - run: cp ./deploy.sh ./dist/ 
     - name: Copy files over ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
@@ -27,7 +28,7 @@ jobs:
     - name: Start container on remote server
       uses: garygrossgarten/github-action-ssh@v0.4.3
       with:
-        command: "cd /tmp/jmr-squared-website/ && bash ./deploy.sh"
+        command: "cd /tmp/jmr-squared-website/dist && bash ./deploy.sh"
         host: ${{ secrets.SERVER_URL }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
