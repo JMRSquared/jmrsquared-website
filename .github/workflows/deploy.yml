@@ -10,10 +10,16 @@ jobs:
     - name: Working dir
       run: pwd
     - uses: actions/checkout@v1
-    - name: COpy files over ssh
+    - name: Build vue app
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: npm install
+    - run: npm run build
+    - name: Copy files over ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
-        local: ./
+        local: ./dist
         remote: "/tmp/jmr-squared-website"
         host: ${{ secrets.SERVER_URL }}
         username: ${{ secrets.SERVER_USERNAME }}

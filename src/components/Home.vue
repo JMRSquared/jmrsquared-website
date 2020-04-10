@@ -50,9 +50,7 @@
               :src="require('../assets/images/platforms.png')"
               contain
               width="100%"
-            ></v-img
-            ><!--
-          <lottie :options="walkAnim" v-on:animCreated="handleAnimation" /> -->
+            ></v-img>
           </v-col>
           <v-col xs="12" md="4" class="pl-10 ml-n10">
             <v-row>
@@ -448,25 +446,21 @@
 </template>
 
 <script lang="ts">
-import Lottie from "./lottie.vue";
+import Lottie from './lottie.vue';
 
-import Vue from "vue";
-import * as animationData from "../assets/lottie/jump.json";
-import * as walkingAnim from "../assets/lottie/walk.json";
-import * as codingAnim from "../assets/lottie/code.json";
+import Vue from 'vue';
+import * as codingAnim from '../assets/lottie/code.json';
 
 export default Vue.extend({
-  name: "HelloWorld",
+  name: 'HelloWorld',
   components: {
-    lottie: Lottie
+    lottie: Lottie,
   },
   data: () => ({
-    email: "",
-    name: "",
-    message: "",
+    email: '',
+    name: '',
+    message: '',
     isLoading: false,
-    defaultOptions: { animationData: animationData.default },
-    walkAnim: { animationData: walkingAnim.default },
     codeAnim: { animationData: codingAnim.default },
     hoveredClient: -1,
     expertise: [
@@ -474,45 +468,44 @@ export default Vue.extend({
       `Our team has assisted in the development and growth of many systems.`,
       `Let us help build your brand and take your business to new heights.`,
       `We translate your business ideas to showcase online at an affordable rate.`,
-      `We deliver the highest quality products and services with guaranteed satisfaction.`
+      `We deliver the highest quality products and services with guaranteed satisfaction.`,
     ],
     services: [
       {
-        name: "Software development",
-        icon: "mdi-code-tags"
+        name: 'Software development',
+        icon: 'mdi-code-tags',
       },
       {
-        name: "Mobile Application Development ",
-        icon: "mdi-tablet-cellphone"
+        name: 'Mobile Application Development ',
+        icon: 'mdi-tablet-cellphone',
       },
       {
-        name: "Web Application Development",
-        icon: "mdi-web"
+        name: 'Web Application Development',
+        icon: 'mdi-web',
       },
       {
-        name: "Database Management and Development",
-        icon: "mdi-database"
+        name: 'Database Management and Development',
+        icon: 'mdi-database',
       },
       {
-        name: "Server maintainance and Cloud Deployments",
-        icon: "mdi-server"
+        name: 'Server maintainance and Cloud Deployments',
+        icon: 'mdi-server',
       },
       {
-        name: "Dashboards and Data visualization",
-        icon: "mdi-monitor-dashboard"
+        name: 'Dashboards and Data visualization',
+        icon: 'mdi-monitor-dashboard',
       },
       {
-        name: "Automation and Manual Testing",
-        icon: "mdi-test-tube"
-      }
-    ]
+        name: 'Automation and Manual Testing',
+        icon: 'mdi-test-tube',
+      },
+    ],
   }),
   methods: {
     submitForm(anim: any) {
       this.isLoading = true;
-      console.log("Animation started");
-    }
-  }
+    },
+  },
 });
 </script>
 
